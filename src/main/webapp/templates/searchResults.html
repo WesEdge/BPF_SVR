@@ -1,0 +1,49 @@
+<script id="tmplSearchResults" type="text/html">
+
+    <div id="searchResults" class="widthPolicy mainFrame">
+
+        <div>
+
+            <div id="tableHeaderSearch" class="hidden">
+                <span class="bold">search query:</span> <span class="italic">{{query}}</span>
+            </div>
+
+            <div id="tableHeaderDefault" class="hidden">
+                <span class="bold">latest...</span>
+            </div>
+            <table>
+
+                {{#data}}
+                <tr class="tableRow lightBlueBg">
+                    <td class="rowCell">
+                        <div class="rowCellTop">
+                            <div class="fileName" fileId="{{_id}}">
+                                {{name}}
+                            </div>
+                            <div class="fileType detail">
+                                {{type}}
+                            </div>
+                            <div class="fileSize detail">
+                                ({{size}})
+                            </div>
+                            <div class="fileDate detail">
+                                {{date}}
+                            </div>
+                        </div>
+                        <div class="rowCellBottom">
+                            <div class="fileDownload" fileId="{{_id}}"></div>
+                            {{#tags}}
+                            <div class="fileTag">#{{.}}</div>
+                            {{/tags}}
+                        </div>
+
+                    </td>
+                </tr>
+                {{/data}}
+
+            </table>
+        </div>
+
+    </div>
+
+</script>

@@ -1,0 +1,310 @@
+@font-face {
+  font-family: "Bauhaus-93";
+  src: url("../fonts/bauhaus-93.ttf"), url("../fonts/bauhaus-93.ttf");
+  /* IE */ }
+
+body {
+  background-image: url("../images/bgGradient.png");
+  background-repeat: repeat-x;
+  margin: 0px;
+  padding: 0px;
+  font-family: arial; }
+  body a, body a:hover, body a:visited {
+    text-decoration: none;
+    color: blue; }
+  body .widthPolicy {
+    min-width: 1024px;
+    max-width: 2080px; }
+  body .heightPolicy {
+    min-height: 490px;
+    max-height: 2080px; }
+  body .redBorder {
+    border: solid 1px red; }
+  body .white {
+    color: white; }
+  body .green {
+    color: lime; }
+  body .gray {
+    color: #7a7979; }
+  body .lightGray {
+    color: #909090; }
+  body .black {
+    color: black; }
+  body .lightBlueBg {
+    background-color: #edf6ff; }
+  body .whiteBg {
+    background-color: white; }
+  body .h2Bold {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: .25px; }
+  body .bold {
+    font-weight: bold; }
+  body .italic {
+    font-style: italic; }
+  body .button {
+    cursor: pointer; }
+  body .hidden {
+    display: none; }
+  body div {
+    overflow: visible; }
+  body #uploadProgress {
+    width: 240px;
+    margin: 0px;
+    display: none; }
+  body #uploadContainer {
+    background-color: #edf6ff;
+    border: 1px dotted #909090;
+    padding: 8px;
+    font-family: bauhaus-93;
+    font-size: 22px; }
+    body #uploadContainer #uploadHeader {
+      padding: 0px 0px 10px 0px;
+      line-height: 12px;
+      color: #7a7979; }
+    body #uploadContainer .uploadRow {
+      font-size: 20px;
+      padding: 0px 0px 0px 0px;
+      width: 100%;
+      height: 26px;
+      overflow: hidden; }
+    body #uploadContainer #uploadFile .lbl {
+      width: 65px;
+      text-align: right;
+      float: left; }
+    body #uploadContainer #uploadFile #btnfileBrowse {
+      width: 80px;
+      margin: 6px 0px 0px 5px;
+      float: left; }
+    body #uploadContainer #uploadFile #chosenFile {
+      overflow: hidden;
+      float: left;
+      width: 307px; }
+    body #uploadContainer #uploadFile #lblChosenFile {
+      font-family: arial;
+      font-size: 15px;
+      margin: 7px 0px 0px 5px;
+      float: left; }
+    body #uploadContainer #uploadFile #lblChosenFileType {
+      color: #909090;
+      font-family: arial;
+      font-size: 12px;
+      margin: 10px 0px 0px 5px;
+      float: left; }
+    body #uploadContainer #uploadTags .lbl {
+      width: 65px;
+      text-align: right;
+      float: left; }
+    body #uploadContainer #uploadTags #txtUploadTags {
+      width: 300px;
+      float: left;
+      margin: 5px 0px 0px 5px;
+      font-size: 12px; }
+    body #uploadContainer #uploadCommit {
+      padding-bottom: 5px; }
+      body #uploadContainer #uploadCommit #btnUploadCommit {
+        width: 80px;
+        margin-top: 10px; }
+  body #mainContainer {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px; }
+    body #mainContainer .mainFrame {
+      position: absolute;
+      right: 0px;
+      left: 0px; }
+    body #mainContainer #header {
+      top: 0px;
+      height: 145px; }
+      body #mainContainer #header div {
+        float: left;
+        height: 100%; }
+      body #mainContainer #header #headerLeft {
+        background-image: url("../images/logo.png");
+        background-repeat: no-repeat;
+        background-position: 27px 9px;
+        width: 202px; }
+      body #mainContainer #header .divider1 {
+        width: 1px;
+        background-image: url("../images/divider1.png");
+        background-repeat: repeat-x; }
+      body #mainContainer #header #headerMain {
+        position: absolute;
+        right: 0px;
+        left: 204px;
+        top: 0px;
+        bottom: 0px;
+        height: inherit;
+        font-family: Bauhaus-93;
+        padding: 20px 10px 0px 38px; }
+        body #mainContainer #header #headerMain #searchBG {
+          position: relative;
+          background-image: url("../images/searchBG.png");
+          background-repeat: repeat-x;
+          width: 241px;
+          height: 33px; }
+          body #mainContainer #header #headerMain #searchBG #txtSearch {
+            margin: 3px 0px 0px 5px;
+            width: 196px;
+            height: 24px;
+            font-family: bauhaus-93;
+            font-size: 20px;
+            background: transparent;
+            border: none;
+            letter-spacing: 1.5px; }
+          body #mainContainer #header #headerMain #searchBG #btnSearch {
+            position: absolute;
+            width: 25px;
+            height: 26px;
+            top: 4px;
+            right: 5px; }
+        body #mainContainer #header #headerMain .headerLink {
+          font-size: 20px;
+          margin-top: 3px;
+          letter-spacing: 2px;
+          height: 28px;
+          float: left;
+          margin-left: 33px; }
+        body #mainContainer #header #headerMain #lblTitle {
+          font-family: Bauhaus-93;
+          position: absolute;
+          top: 61px;
+          left: 23px;
+          font-size: 44px;
+          letter-spacing: 1px; }
+        body #mainContainer #header #headerMain #lblBeta {
+          color: #7a7979;
+          font-family: Bauhaus-93;
+          position: absolute;
+          top: 76px;
+          left: 383px;
+          font-size: 30px;
+          letter-spacing: 1px; }
+    body #mainContainer #spinny {
+      top: 145px;
+      bottom: 46px;
+      position: absolute;
+      margin-left: 38px;
+      margin-top: 20px;
+      width: 128px;
+      height: 128px;
+      background-image: url("../images/spinny.png");
+      background-repeat: no-repeat; }
+    body #mainContainer #content {
+      top: 145px;
+      bottom: 46px; }
+      body #mainContainer #content #searchResults #tableHeaderSearch {
+        width: 500px;
+        text-align: center;
+        margin: 10px auto 10px auto; }
+      body #mainContainer #content #searchResults #tableHeaderDefault {
+        width: 500px;
+        text-align: center;
+        margin: 10px auto 10px auto; }
+      body #mainContainer #content #searchResults table {
+        margin: auto;
+        border-collapse: collapse;
+        border-spacing: 0px; }
+        body #mainContainer #content #searchResults table tr .headerRowCell {
+          padding: 18px; }
+        body #mainContainer #content #searchResults table tr .rowCell {
+          border-width: 1px 0px 1px 0px;
+          border-color: #909090;
+          border-style: dotted;
+          padding: 4px 6px 4px 6px; }
+          body #mainContainer #content #searchResults table tr .rowCell .rowCellTop {
+            overflow: hidden; }
+            body #mainContainer #content #searchResults table tr .rowCell .rowCellTop div {
+              margin-right: 5px; }
+            body #mainContainer #content #searchResults table tr .rowCell .rowCellTop .detail {
+              float: left;
+              color: #909090;
+              font-size: 12px;
+              margin-top: 1px; }
+            body #mainContainer #content #searchResults table tr .rowCell .rowCellTop .fileName {
+              color: #5190e6;
+              text-decoration: none;
+              font-weight: bold;
+              font-size: 14px;
+              cursor: pointer;
+              float: left; }
+          body #mainContainer #content #searchResults table tr .rowCell .rowCellBottom {
+            overflow: hidden; }
+            body #mainContainer #content #searchResults table tr .rowCell .rowCellBottom .fileDownload {
+              width: 16px;
+              height: 16px;
+              cursor: pointer;
+              background-image: url("../images/download-icon.png");
+              background-repeat: no-repeat;
+              float: left;
+              margin-left: 1px; }
+            body #mainContainer #content #searchResults table tr .rowCell .rowCellBottom .fileTag {
+              color: #5190e6;
+              font-size: 12px;
+              cursor: pointer;
+              float: left;
+              margin-left: 8px;
+              margin-top: 2px; }
+      body #mainContainer #content #welcomeText {
+        float: left;
+        width: 100%;
+        margin: 34px 0px 40px 36px; }
+      body #mainContainer #content .imgLandingMenu {
+        background-image: url("../images/landingMenu.png"); }
+      body #mainContainer #content .imgLandingMenu_give {
+        background-image: url("../images/landingMenu_give.png"); }
+      body #mainContainer #content .imgLandingMenu_get {
+        background-image: url("../images/landingMenu_get.png"); }
+      body #mainContainer #content .imgLandingMenu_explore {
+        background-image: url("../images/landingMenu_explore.png"); }
+      body #mainContainer #content .imgLandingMenu_learn {
+        background-image: url("../images/landingMenu_learn.png"); }
+      body #mainContainer #content #landingMenu {
+        background-repeat: no-repeat;
+        width: 452px;
+        height: 190px;
+        margin: auto;
+        padding-top: 5px;
+        position: relative; }
+        body #mainContainer #content #landingMenu .bigLandingLink {
+          width: 214px;
+          height: 180px;
+          float: left; }
+        body #mainContainer #content #landingMenu #btnBigGet {
+          margin-left: 16px; }
+        body #mainContainer #content #landingMenu #btnBigExplore {
+          margin-left: 16px; }
+        body #mainContainer #content #landingMenu #btnBigLearn {
+          margin-left: 16px; }
+    body #mainContainer #footer {
+      bottom: 0px;
+      height: 46px; }
+      body #mainContainer #footer #footerText {
+        float: left;
+        width: 600px;
+        margin: 13px 0px 0px 36px; }
+      body #mainContainer #footer .linkIcon {
+        height: 38px;
+        width: 38px;
+        margin: 4px;
+        float: right; }
+      body #mainContainer #footer #githubIcon {
+        /*background-image:url('../images/github.png');*/ }
+      body #mainContainer #footer .github {
+        background-image: url("../images/github.png"); }
+      body #mainContainer #footer .githubOver {
+        background-image: url("../images/github_over.png"); }
+      body #mainContainer #footer #facebookIcon {
+        /*background-image:url('../images/facebook.png');*/ }
+      body #mainContainer #footer .facebook {
+        background-image: url("../images/facebook.png"); }
+      body #mainContainer #footer .facebookOver {
+        background-image: url("../images/facebook_over.png"); }
+      body #mainContainer #footer #twitterIcon {
+        margin-right: 8px; }
+      body #mainContainer #footer .twitter {
+        background-image: url("../images/twitter.png"); }
+      body #mainContainer #footer .twitterOver {
+        background-image: url("../images/twitter_over.png"); }

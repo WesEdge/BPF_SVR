@@ -1,0 +1,45 @@
+
+
+
+div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer{
+    width:226px;
+}
+
+div.jGrowl div.iphone {
+    font-family: 			"Helvetica Neue", "Helvetica";
+    font-size: 				12px;
+    background: 			url(../images/iphone.png) no-repeat;
+    -moz-border-radius: 	0px;
+    -webkit-border-radius:	0px;
+    opacity: 				.90;
+    filter: 				alpha(opacity = 90);
+    width: 					240px;
+    height: 				51px;
+    overflow: 				hidden;
+    border-color: 			#5ab500;
+    color: 					#fff;
+    padding:18px 10px 14px 18px;
+    margin:0px;
+}
+
+div.jGrowl div.iphone .jGrowl-close {
+    padding-right: 			20px;
+}
+
+div.jGrowl div.iphone div.message {
+    padding-top: 			0px;
+    padding-bottom: 		7px;
+    padding-left: 			15px;
+    padding-right: 			15px;
+}
+
+div.jGrowl div.iphone div.header {
+    padding: 				7px;
+    padding-left: 			15px;
+    padding-right: 			15px;
+    font-size: 				17px;
+}
+
+div.jGrowl div.iphone div.close {
+    display: 				none;
+}

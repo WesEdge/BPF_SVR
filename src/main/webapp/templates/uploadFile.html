@@ -1,0 +1,31 @@
+<script id="tmplUploadFile" type="text/html">
+
+    <div id="uploadContainer">
+
+        <form enctype="multipart/form-data">
+
+            <div id="uploadHeader">upload file.. <progress id="uploadProgress"></progress></div>
+            <div id="uploadFile" class="uploadRow">
+                <div class="lbl">file :</div>
+                <input name="file" type="file" />
+            </div>
+
+        </form>
+
+        <div id="uploadTags" class="uploadRow">
+            <div class="lbl">tags :</div>
+            <input type="input" id="txtUploadTags" class="lightGray" value="tag1, tag2, tag3" />
+        </div>
+
+        <div id="uploadCommit" class="uploadRow">
+            <center>
+                <button id="btnUploadCommit" class="button">upload</button>
+            </center>
+
+        </div>
+
+        <!--progress style="width: 100%; margin: 14px 0px 0px 0px;"></progress-->
+
+    </div>
+
+</script>

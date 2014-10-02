@@ -1,0 +1,516 @@
+
+$blue: #00F;
+$white: #FFF;
+$green: #0F0;
+$gray: #7a7979;
+$lightGray: #909090;
+$black: #000;
+$lightBlue: #EDF6FF;
+$seaBlue: #5190E6;
+$darkBlue: #040CBD;
+
+@font-face{
+  font-family: "Bauhaus-93";
+  src: url('../fonts/bauhaus-93.ttf'),
+  url('../fonts/bauhaus-93.ttf'); /* IE */
+}
+
+body {
+  background-image:url('../images/bgGradient.png');
+  background-repeat:repeat-x;
+  margin:0px;
+  padding:0px;
+  font-family: arial;
+
+  a, a:hover, a:visited { text-decoration: none; color:$blue; }
+
+  .widthPolicy{
+    min-width:1024px;
+    max-width:2080px;
+  }
+
+
+  .heightPolicy{
+    min-height:490px;
+    max-height:2080px;
+  }
+
+  .redBorder{
+    border: solid 1px red;
+  }
+
+  .white{
+    color:$white;
+  }
+
+  .green{
+    color:$green;
+  }
+
+  .gray{
+    color:$gray;
+  }
+
+  .lightGray{
+    color:$lightGray;
+  }
+
+  .black{
+    color:$black;
+  }
+
+  .lightBlueBg{
+    background-color: $lightBlue;
+  }
+
+  .whiteBg{
+    background-color: $white;
+  }
+
+  .h2Bold{
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing:.25px;
+  }
+
+  .bold{
+    font-weight: bold;
+  }
+
+  .italic{
+    font-style: italic;
+  }
+
+  .button{
+    cursor:pointer;
+  }
+
+  .hidden{
+    display:none;
+  }
+
+  div{
+    overflow:visible;
+  }
+
+  #uploadProgress{
+    width:240px;
+    margin:0px;
+    display:none
+  }
+
+  #uploadContainer{
+
+    background-color: $lightBlue;
+    border: 1px dotted $lightGray;
+    padding:8px;
+    font-family: bauhaus-93;
+    font-size:22px;
+
+    #uploadHeader{
+      padding: 0px 0px 10px 0px;
+      line-height: 12px;
+      color:$gray;
+    }
+
+    .uploadRow{
+      font-size: 20px;
+      padding: 0px 0px 0px 0px;
+      width: 100%;
+      height: 26px;
+      overflow: hidden;
+    }
+
+    #uploadFile{
+
+      .lbl{
+        width:65px;
+        text-align: right;
+        float:left;
+      }
+
+      #btnfileBrowse{
+        width:80px;
+        margin:6px 0px 0px 5px;
+        float:left;
+      }
+
+      #chosenFile{
+        overflow:hidden;
+        float:left;
+        width:307px;
+      }
+
+      #lblChosenFile{
+        font-family: arial;
+        font-size: 15px;
+        margin: 7px 0px 0px 5px;
+        float:left;
+
+      }
+
+      #lblChosenFileType{
+        color: #909090;
+        font-family: arial;
+        font-size: 12px;
+        margin: 10px 0px 0px 5px;
+        float: left;
+      }
+
+    }
+
+    #uploadTags{
+
+      .lbl{
+        width:65px;
+        text-align: right;
+        float:left;
+      }
+
+      #txtUploadTags{
+        width:300px;
+        float:left;
+        margin: 5px 0px 0px 5px;
+        font-size: 12px;
+      }
+    }
+
+    #uploadCommit{
+
+      padding-bottom:5px;
+
+      #btnUploadCommit{
+        width:80px;
+        margin-top:10px;
+      }
+    }
+
+  }
+
+  #mainContainer{
+    position: absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+
+    .mainFrame{
+      position:absolute;
+      right:0px;
+      left:0px;
+    }
+
+    #header{
+      top:0px;
+      height:145px;
+
+      div{
+        float:left;
+        height:100%;
+      }
+
+      #headerLeft{
+        background-image:url('../images/logo.png');
+        background-repeat: no-repeat;
+        background-position: 27px 9px;
+        width:202px;
+      }
+
+      .divider1{
+        width:1px;
+        background-image:url('../images/divider1.png');
+        background-repeat:repeat-x;
+
+      }
+
+      #headerMain {
+        position:absolute;
+        right:0px;
+        left:204px;
+        top:0px;
+        bottom:0px;
+        height:inherit;
+        font-family: Bauhaus-93;
+        padding: 20px 10px 0px 38px;
+
+        #searchBG{
+          position:relative;
+          background-image:url('../images/searchBG.png');
+          background-repeat:repeat-x;
+          width:241px;
+          height:33px;
+
+          #txtSearch{
+            margin: 3px 0px 0px 5px;
+            width: 196px;
+            height: 24px;
+            font-family: bauhaus-93;
+            font-size: 20px;
+            background: transparent;
+            border: none;
+            letter-spacing:1.5px;
+          }
+
+          #btnSearch{
+            position:absolute;
+            width:25px;
+            height:26px;
+            top:4px;
+            right:5px;
+          }
+
+        }
+
+        .headerLink{
+          font-size: 20px;
+          margin-top: 3px;
+          letter-spacing: 2px;
+          height:28px;
+          float:left;
+          margin-left:33px;
+        }
+
+        #lblTitle{
+          font-family: Bauhaus-93;
+          position: absolute;
+          top: 61px;
+          left: 23px;
+          font-size: 44px;
+          letter-spacing: 1px;
+        }
+
+        #lblBeta{
+          color:$gray;
+          font-family: Bauhaus-93;
+          position: absolute;
+          top: 76px;
+          left: 383px;
+          font-size: 30px;
+          letter-spacing: 1px;
+        }
+
+      }
+
+    }
+
+    #spinny{
+      top:145px;
+      bottom:46px;
+      position:absolute;
+      margin-left: 38px;
+      margin-top: 20px;
+      width:128px;
+      height:128px;
+      background-image:url('../images/spinny.png');
+      background-repeat: no-repeat;
+    }
+
+    #content{
+      top:145px;
+      bottom:46px;
+
+      #searchResults{
+
+        #tableHeaderSearch{
+          width: 500px;
+          text-align: center;
+          margin: 10px auto 10px auto;
+        }
+
+        #tableHeaderDefault{
+          width: 500px;
+          text-align: center;
+          margin: 10px auto 10px auto;
+        }
+
+        table{
+          margin:auto;
+          border-collapse: collapse;
+          border-spacing:0px;
+
+          tr{
+
+            .headerRowCell{
+              padding: 18px;
+            }
+
+            .rowCell {
+
+              border-width: 1px 0px 1px 0px;
+              border-color: $lightGray;
+              border-style: dotted;
+              padding: 4px 6px 4px 6px;
+
+              .rowCellTop {
+
+                overflow:hidden;
+
+                div{
+                  margin-right:5px;
+                }
+
+                .detail{
+                  float:left;
+                  color: $lightGray;
+                  font-size: 12px;
+                  margin-top:1px;
+                }
+
+                .fileName{
+                  color: $seaBlue;
+                  text-decoration: none;
+                  font-weight: bold;
+                  font-size: 14px;
+                  cursor:pointer;
+                  float:left;
+
+                }
+
+                .fileSize{
+
+                }
+
+                .fileType{
+
+                }
+
+                .fileDate{
+
+                }
+
+              }
+
+              .rowCellBottom {
+
+                overflow:hidden;
+
+                .fileDownload{
+                  width:16px;
+                  height:16px;
+                  cursor:pointer;
+                  background-image:url('../images/download-icon.png');
+                  background-repeat: no-repeat;
+                  float:left;
+                  margin-left:1px;
+                }
+
+                .fileTag{
+                  color: $seaBlue;
+                  font-size: 12px;
+                  cursor: pointer;
+                  float:left;
+                  margin-left: 8px;
+                  margin-top: 2px;
+                }
+
+              }
+            }
+          }
+        }
+
+      }
+
+      #welcomeText{
+        float:left;
+        width:100%;
+        margin: 34px 0px 40px 36px;
+      }
+
+      .imgLandingMenu { background-image:url('../images/landingMenu.png'); }
+      .imgLandingMenu_give{ background-image:url('../images/landingMenu_give.png'); }
+      .imgLandingMenu_get { background-image:url('../images/landingMenu_get.png'); }
+      .imgLandingMenu_explore { background-image:url('../images/landingMenu_explore.png'); }
+      .imgLandingMenu_learn { background-image:url('../images/landingMenu_learn.png'); }
+
+      #landingMenu{
+        background-repeat: no-repeat;
+        width:452px;
+        height:190px;
+        margin:auto;
+        padding-top:5px;
+        position:relative;
+
+        .bigLandingLink{
+          width:214px;
+          height:180px;
+          float:left;
+        }
+
+        #btnBigGive{
+
+        }
+
+        #btnBigGet{
+          margin-left:16px;
+        }
+
+        #btnBigExplore{
+          margin-left:16px;
+        }
+
+        #btnBigLearn{
+          margin-left:16px;
+        }
+
+      }
+
+    }
+
+    #footer{
+      bottom:0px;
+      height:46px;
+
+      #footerText{
+        float:left;
+        width:600px;
+        margin: 13px 0px 0px 36px;
+      }
+
+      .linkIcon{
+        height:38px;
+        width:38px;
+        margin:4px;
+        float:right;
+      }
+
+      #githubIcon{
+        /*background-image:url('../images/github.png');*/
+      }
+
+      .github{
+        background-image:url('../images/github.png');
+      }
+
+      .githubOver{
+        background-image:url('../images/github_over.png');
+      }
+
+      #facebookIcon{
+        /*background-image:url('../images/facebook.png');*/
+      }
+
+      .facebook{
+        background-image:url('../images/facebook.png');
+      }
+
+      .facebookOver{
+        background-image:url('../images/facebook_over.png');
+      }
+
+      #twitterIcon{
+        margin-right:8px;
+      }
+
+      .twitter{
+        background-image:url('../images/twitter.png');
+      }
+
+      .twitterOver{
+        background-image:url('../images/twitter_over.png');
+      }
+
+    }
+
+  }
+
+}
