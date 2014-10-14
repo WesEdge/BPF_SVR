@@ -41,9 +41,9 @@ public class FileUploadServlet extends HttpServlet {
             out.write(fileUploader.getFileItem().getName());
 
         } catch (FileUploadException e) {
-            out.write("Exception in uploading file.");
+            out.write("Exception in uploading file." + e.toString());
         } catch (Exception e) {
-            out.write("Exception in uploading file.");
+            out.write("Exception in uploading file. " + e.toString());
         }
 
     }

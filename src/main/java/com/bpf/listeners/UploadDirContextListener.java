@@ -17,13 +17,12 @@ public class UploadDirContextListener implements ServletContextListener {
         ///--------------------------------------
 
         ServletContext ctx = servletContextEvent.getServletContext();
-        String rootPath = System.getProperty("catalina.home");
-        String relativePath = ctx.getInitParameter("UPLOAD_FILE_DIR");
-        File file = new File(rootPath + File.separator + relativePath);
+        String path = ctx.getInitParameter("UPLOAD_FILE_DIR");
+        File file = new File(path);
         if(!file.exists()) file.mkdirs();
-        System.out.println("File Directory created to be used for storing files");
+        System.out.println("File Directory exists to be used for storing files.. " + path);
         ctx.setAttribute("FILES_DIR_FILE", file);
-        ctx.setAttribute("FILES_DIR", rootPath + File.separator + relativePath);
+        ctx.setAttribute("FILES_DIR", path);
 
     }
 
