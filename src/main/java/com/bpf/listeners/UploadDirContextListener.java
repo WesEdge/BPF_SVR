@@ -17,7 +17,7 @@ public class UploadDirContextListener implements ServletContextListener {
         ///--------------------------------------
 
         ServletContext ctx = servletContextEvent.getServletContext();
-        String path = ctx.getInitParameter("UPLOAD_FILE_DIR");
+        String path = ctx.getInitParameter("FILE_DIR");
         File file = new File(path);
         if(!file.exists()) file.mkdirs();
         System.out.println("File Directory exists to be used for storing files.. " + path);
