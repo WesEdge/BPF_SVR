@@ -14,17 +14,17 @@
 
     <context-param>
         <param-name>UPLOAD_FILE_DIR</param-name>
-        <param-value>/etc/bpf</param-value>
+        <param-value>${bpf.fileDir}</param-value>
     </context-param>
 
     <context-param>
         <param-name>MONGODB_HOST</param-name>
-        <param-value>localhost</param-value>
+        <param-value>${bpf.mongoHost}</param-value>
     </context-param>
 
     <context-param>
         <param-name>MONGODB_PORT</param-name>
-        <param-value>27017</param-value>
+        <param-value>${bpf.mongoPort}</param-value>
     </context-param>
 
 </web-app>
