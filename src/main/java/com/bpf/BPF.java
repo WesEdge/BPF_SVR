@@ -1,5 +1,7 @@
 package com.bpf;
 
+import com.mongodb.MongoClient;
+
 import javax.servlet.ServletContext;
 
 /**
@@ -32,6 +34,10 @@ public class BPF {
     public static void setContextAttribute(ServletContext ctx, String key, Object value){
         ctx.setAttribute(key, value); // sets the context param
         System.out.println(String.format("%s = %s", key, value.toString()));   // write "key = value" to console
+    }
+
+    public static MongoClient getMongoClient(ServletContext ctx){
+        return (MongoClient) ctx.getAttribute("MONGO_CLIENT");
     }
 
 }

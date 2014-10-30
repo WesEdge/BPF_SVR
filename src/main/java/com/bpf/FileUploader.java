@@ -39,7 +39,8 @@ public class FileUploader {
         MongoClient mongoClient = null;
         ObjectId id = null;
 
-        mongoClient = (MongoClient) request.getServletContext().getAttribute("MONGO_CLIENT");
+        mongoClient = BPF.getMongoClient(request.getServletContext());
+
         DB db = mongoClient.getDB( "bpf" );
         DBCollection coll = db.getCollection("uploads");
 
@@ -99,7 +100,7 @@ public class FileUploader {
             ObjectId id = saveToDB(fileItem);
 
             // declare the file to save
-            File file = new File(request.getServletContext().getAttribute("FILES_DIR")
+            File file = new File(request.getServletContext().getAttribute(BPF.ConfigKeys.FILE_DIR_PATH.name())
                     + File.separator
                     //+ fileItem.getName());
                     + id.toString());
