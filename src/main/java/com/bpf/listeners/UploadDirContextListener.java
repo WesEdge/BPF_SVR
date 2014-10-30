@@ -1,5 +1,7 @@
 package com.bpf.listeners;
 
+import com.bpf.BPF;
+
 import java.io.File;
 
 import javax.servlet.ServletContext;
@@ -12,17 +14,31 @@ public class UploadDirContextListener implements ServletContextListener {
 
     public void contextInitialized(ServletContextEvent servletContextEvent)  {
 
-        ///--------------------------------------
-        //set the server file upload directory
-        ///--------------------------------------
-
         ServletContext ctx = servletContextEvent.getServletContext();
-        String path = ctx.getInitParameter("FILE_DIR");
-        File file = new File(path);
-        if(!file.exists()) file.mkdirs();
-        System.out.println("File Directory exists to be used for storing files.. " + path);
-        ctx.setAttribute("FILES_DIR_FILE", file);
-        ctx.setAttribute("FILES_DIR", path);
+
+        String fileStorageType = BPF.setContextAttributeFromWebConfig(ctx, BPF.ConfigKeys.FILE_STORAGE_TYPE.name());
+
+        if (fileStorageType.equals(BPF.FileStorageTypes.LOCAL_FILE_DIR.name())){
+            // local file directory path will be used to store files
+
+            String fileDirPath = BPF.setContextAttributeFromWebConfig(ctx, BPF.ConfigKeys.FILE_DIR_PATH.name());
+
+            // create the directory if it does not exist
+            File fileDir = new File(fileDirPath);
+            if(!fileDir.exists()) fileDir.mkdirs();
+
+            // save the directory to context
+            BPF.setContextAttribute(ctx, BPF.ConfigKeys.FILE_DIR.name(), fileDir);
+
+        }
+        else if (fileStorageType.equals(BPF.FileStorageTypes.S3.name())){
+            // S3 will be used to store files
+            ctx.setAttribute("test", "test");
+
+        }
+
+
+
 
     }
 

@@ -4,6 +4,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+
+import com.bpf.BPF;
 import com.mongodb.MongoClient;
 
 @WebListener
@@ -19,13 +21,14 @@ public class MongoDBContextListener implements ServletContextListener {
 
         try {
 
-            MongoClient mongo = new MongoClient(
-                    ctx.getInitParameter("MONGODB_HOST"),
-                    Integer.parseInt(ctx.getInitParameter("MONGODB_PORT")));
+            String mongoHost = BPF.setContextAttributeFromWebConfig(ctx, BPF.ConfigKeys.MONGO_HOST.name());
+            String mongoPort = BPF.setContextAttributeFromWebConfig(ctx, BPF.ConfigKeys.MONGO_PORT.name());
+
+            MongoClient mongo = new MongoClient(mongoHost, Integer.parseInt(mongoPort));
 
             System.out.println("MongoClient initialized successfully");
 
-            ctx.setAttribute("MONGO_CLIENT", mongo);
+            BPF.setContextAttribute(ctx, BPF.ConfigKeys.MONGO_CLIENT.name(), mongo);
 
         } catch (java.net.UnknownHostException e) {
             throw new RuntimeException("MongoClient init failed");
@@ -38,7 +41,7 @@ public class MongoDBContextListener implements ServletContextListener {
         ///--------------------------------
         // close mongodb client connection
         ///--------------------------------
-        MongoClient mongo = (MongoClient) servletContextEvent.getServletContext().getAttribute("MONGO_CLIENT");
+        MongoClient mongo = (MongoClient) servletContextEvent.getServletContext().getAttribute(BPF.ConfigKeys.MONGO_CLIENT.name());
         mongo.close();
         System.out.println("MongoClient closed successfully");
 
