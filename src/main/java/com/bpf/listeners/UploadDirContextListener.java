@@ -16,6 +16,8 @@ public class UploadDirContextListener implements ServletContextListener {
 
         ServletContext ctx = servletContextEvent.getServletContext();
 
+        BPF.setInitVars(ctx);
+
         String fileStorageType = BPF.setContextAttributeFromWebConfig(ctx, BPF.ConfigKeys.FILE_STORAGE_TYPE.name());
 
         if (fileStorageType.equals(BPF.FileStorageTypes.LOCAL_FILE_DIR.name())){
