@@ -1,8 +1,6 @@
 package com.bpf.listeners;
 
 import com.bpf.BPF;
-import com.mongodb.MongoClient;
-
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
