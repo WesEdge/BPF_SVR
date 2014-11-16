@@ -1,8 +1,8 @@
 package com.bpf.upload;
 
 import com.bpf.BPF;
-import com.bpf.file.LocalDisk;
-import com.bpf.file.S3;
+import com.bpf.storage.LocalDisk;
+import com.bpf.storage.S3;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -33,16 +33,8 @@ public class FileUploader {
         while(fileItemsIterator.hasNext()){
 
             fileItem = fileItemsIterator.next();
-
-            ObjectId id = com.bpf.Mongo.save(fileItem, request); // saves the upload transaction to mongo db
-
-            if (BPF.isS3()){
-                S3.save(fileItem, id);  //saves file to S3
-            }
-            else{
-                LocalDisk.save(fileItem, id);   // saves file to local disk
-            }
-
+            ObjectId id = BPF.getMongo().saveUploadTxn(fileItem, request); // saves the upload transaction to mongo db
+            BPF.getFileStore().save(fileItem, id);
 
         }
 

@@ -16,7 +16,7 @@
         <param-name>FILE_STORAGE_TYPE</param-name>
         <param-value>${bpf.fileStorageType}</param-value>
         <!--param-value>S3</param-value-->
-        <!--param-value>LOCAL_FILE_DIR</param-value-->
+        <!--param-value>LOCAL_DISK</param-value-->
     </context-param>
 
     <context-param>
@@ -32,6 +32,21 @@
     <context-param>
         <param-name>MONGO_PORT</param-name>
         <param-value>${bpf.mongoPort}</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>S3_ACCESS_KEY</param-name>
+        <param-value>${bpf.s3AccessKey}</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>S3_SECRET_KEY</param-name>
+        <param-value>${bpf.s3SecretKey}</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>S3_BUCKET_NAME</param-name>
+        <param-value>${bpf.s3BucketName}</param-value>
     </context-param>
 
 </web-app>

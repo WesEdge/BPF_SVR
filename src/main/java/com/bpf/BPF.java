@@ -1,6 +1,8 @@
 package com.bpf;
 
-import com.mongodb.MongoClient;
+import com.bpf.storage.LocalDisk;
+import com.bpf.storage.S3;
+import com.bpf.storage.FileStore;
 
 import javax.servlet.ServletContext;
 
@@ -11,24 +13,22 @@ import javax.servlet.ServletContext;
 public class BPF {
 
     private static ServletContext context = null;
+    private static FileStore fileStore = null;
+    private static Mongo mongo = null;
 
     public static enum ConfigKeys {
         FILE_STORAGE_TYPE,
-        FILE_DIR,
         FILE_DIR_PATH,
         MONGO_HOST,
         MONGO_PORT,
-        MONGO_CLIENT
+        S3_ACCESS_KEY,
+        S3_SECRET_KEY,
+        S3_BUCKET_NAME
     }
 
     public static enum FileStorageTypes {
         S3,
-        LOCAL_FILE_DIR
-    }
-
-    public static boolean isS3(){
-        boolean s3 = BPF.getContext().getInitParameter(BPF.ConfigKeys.FILE_STORAGE_TYPE.name()).equals(FileStorageTypes.S3.name());
-        return s3;
+        LOCAL_DISK
     }
 
     public static ServletContext getContext(){
@@ -37,23 +37,43 @@ public class BPF {
 
     public static void setInitVars(ServletContext context){
         BPF.context = context;
+        setFileStore();
+        setMongo();
     }
 
-    public static String setContextAttributeFromWebConfig(ServletContext ctx, String configKey){
+    private static void setMongo(){
+        mongo = new Mongo();
+    }
 
-        String configValue = ctx.getInitParameter(configKey);    // get the value from web config
-        BPF.setContextAttribute(ctx, configKey, configValue);   // sets the context param
+    public static Mongo getMongo(){
+        return mongo;
+    }
+
+    public static FileStore getFileStore(){
+        return fileStore;
+    }
+
+    private static void setFileStore(){
+
+        String fileStorageType = BPF.getConfigParam(BPF.ConfigKeys.FILE_STORAGE_TYPE.name());
+
+        if (fileStorageType.equals(BPF.FileStorageTypes.S3.name())){
+            fileStore = new S3();
+        }
+        else{
+            fileStore = new LocalDisk();
+        }
+
+    }
+
+    public static String getConfigParam(String configKey){
+        String configValue = BPF.getContext().getInitParameter(configKey);
+        writeAttribute(configKey, configValue);
         return configValue;
-
     }
 
-    public static void setContextAttribute(ServletContext ctx, String key, Object value){
-        ctx.setAttribute(key, value); // sets the context param
+    public static void writeAttribute(String key, Object value){
         System.out.println(String.format("%s = %s", key, value.toString()));   // write "key = value" to console
-    }
-
-    public static MongoClient getMongoClient(){
-        return (MongoClient) BPF.getContext().getAttribute("MONGO_CLIENT");
     }
 
     public static String getFormattedSize(long bytes){

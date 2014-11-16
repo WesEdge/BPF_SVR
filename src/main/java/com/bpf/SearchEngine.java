@@ -5,11 +5,9 @@ import com.mongodb.DBObject;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.DBCollection;
-import com.mongodb.MongoClient;
 import com.mongodb.QueryBuilder;
 import javax.servlet.http.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class SearchEngine {
@@ -21,8 +19,7 @@ public class SearchEngine {
 
     public SearchEngine(HttpServletRequest request){
 
-        MongoClient mongoClient = (MongoClient) request.getServletContext().getAttribute("MONGO_CLIENT");
-        DB db = mongoClient.getDB( "bpf" );
+        DB db = Mongo.getDB( "bpf" );
         dbCollection = db.getCollection("uploads");
 
     }

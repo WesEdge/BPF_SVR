@@ -6,7 +6,6 @@ import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
 import org.apache.commons.fileupload.FileItem;
 import org.bson.types.ObjectId;
-
 import javax.servlet.http.HttpServletRequest;
 import java.net.UnknownHostException;
 import java.util.Date;
@@ -16,15 +15,36 @@ import java.util.Date;
  */
 public class Mongo {
 
-    //saves the upload txn to mongo
-    public static ObjectId save(FileItem fileItem, HttpServletRequest request) throws UnknownHostException {
+    private String host = null;
+    private int port;
+    private MongoClient client = null;
 
-        MongoClient mongoClient = null;
+    public void setInitVars(){
+
+        ///--------------------------------------
+        // open & save mongodb client connection
+        ///--------------------------------------
+
+        try {
+
+            host = BPF.getConfigParam(BPF.ConfigKeys.MONGO_HOST.name());
+            port = Integer.parseInt(BPF.getConfigParam(BPF.ConfigKeys.MONGO_PORT.name()));
+            client = new MongoClient(host, port);
+
+            System.out.println("MongoClient initialized successfully");
+
+        } catch (java.net.UnknownHostException e) {
+            throw new RuntimeException("MongoClient init failed");
+        }
+
+    }
+
+    //saves the upload txn to mongo
+    public ObjectId saveUploadTxn(FileItem fileItem, HttpServletRequest request) throws UnknownHostException {
+
         ObjectId id = null;
 
-        mongoClient = BPF.getMongoClient();
-
-        DB db = mongoClient.getDB( "bpf" );
+        DB db = client.getDB( "bpf" );
         DBCollection coll = db.getCollection("uploads");
 
         BasicDBObject doc = new BasicDBObject("name", fileItem.getName())
@@ -43,6 +63,23 @@ public class Mongo {
 
         return id;
 
+    }
+
+    public void close(){
+
+        if (null != client){
+            client.close();
+            System.out.println("MongoClient closed successfully");
+        }
+
+    }
+
+    public static MongoClient getClient(){
+        return BPF.getMongo().client;
+    }
+
+    public static DB getDB(String dbName){
+        return getClient().getDB(dbName);
     }
 
 }
